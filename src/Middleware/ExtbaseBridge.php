@@ -10,7 +10,6 @@ namespace B13\SlimPhp\Middleware;
  * the terms of the GNU General Public License, either version 2
  * of the License, or any later version.
  */
-
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -27,13 +26,11 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  */
 class ExtbaseBridge implements MiddlewareInterface
 {
-    private string $typo3Version = '';
     private Context $context;
 
     public function __construct(Context $context)
     {
         $this->context = $context;
-        $this->typo3Version = (string)(new \TYPO3\CMS\Core\Information\Typo3Version());
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
